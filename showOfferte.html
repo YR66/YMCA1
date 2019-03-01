@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Show offerte</title>
+    <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+
+    <script>
+
+        $(document).ready( function() {
+            var url_string = window.location.href; //window.location.href
+            var url = new URL(url_string);
+            var Id = url.searchParams.get("offerteId");
+            var urlstring = 'http://localhost:8080/offertes/' + Id.toString();
+
+            $.ajax(urlstring, {'method':'GET'})
+                .done( function(data) {
+                    var o = '<p> '+ data.organisatie + '<br /> ' +
+                        'T.a.v.:' + data.naam + '<br /> ' +
+                        'Adres: '+ data.adres + '<br /> ' +
+                        'Postcode: '+ data.postcode + '<br /> ' +
+                        'Woonplaats: '+ data.woonplaats + '<br /> ' +
+
+                        'Telefoonnummer: '+ data.telefoonnummer + ' <br /> ' +
+                        'Email: '+ data.email + '<br /> ' +
+                        '<br/>' +
+                        'Datum: '+ data.datum +' </p>'+
+                        '<br/>' +
+                        'Datum activiteiten: '+ data.activiteitDatum +' </p>'
+                    //var o = '<p> Naam: +  "data.naam" + <br /></p>'
+                    for (var i = 0; i < data.activiteiten.length; i++) {
+                        let h = `<tr class='dpt' id='${data.activiteiten[i].activiteitId}'><td>${data.activiteiten[i].aanvang} uur </td> <td>${data.activiteiten[i].naam}</td><td>${data.activiteiten[i].omschrijving}</td><td class="price">€ ${data.activiteiten[i].tarief.toFixed(2)}</td></tr>`
+                        $("#activiteiten").html($("#activiteiten").html() + h)
+                    }
+
+                    document.getElementById("offerte").innerHTML = o;
+
+                    var s = '<p>'+ data.status + ' </p>'
+                    document.getElementById("status").innerHTML = s;
+
+
+                    var p = '<p> Totaalbedrag: € '+ data.prijs.toFixed(2) +  ' </p>'
+                    document.getElementById("totaal").innerHTML = p;
+
+                    var q = '<p>'+ data.medewerker + '<br /> </p>'
+                    document.getElementById("medewerker").innerHTML = q;
+                })
+                .fail( function(e) { console.log(e)} )
+        })
+
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#btnPrint").live("click", function () {
+            var divContents = $("#container").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Show offerte</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    </script>
+
+
+
+
+</head>
+
+<body>
+<div class="container" id="container" >
+
+    <div class="row statusbox">
+
+        <div class="status-item"><section id="status"></section></div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-5">
+            <a><img src="img/Asset 2.png"></a>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-5">
+            <h2>YMCa</h2>
+            <p class="ymca-adres">Outdoorstraat 1</p>
+            <p class="ymca-adres">1234 AB Ouddoordorp</p>
+            <p class="ymca-adres">06-12345678</p>
+            <p class="ymca-adres">info@ymca.nl</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <section id="offerte"></section>
+    </div>
+
+    <div class="row">
+
+        <table id="activiteiten" class="table ymca-table">
+
+            <div class="col-sm-2">
+                <th>Aanvang</th>
+            </div>
+            <div class="col-sm-4">
+                <th>Activiteit</th>
+            </div>
+            <div class="col-sm-6">
+                <th>Omschrijving</th>
+            </div>
+            <div class="col-sm-2">
+                <th>Tarief</th>
+            </div>
+        </table>
+    </div>
+
+    <div class=" row">
+
+        <div class="col-sm-12">
+            <p><section id="totaal" class="totaal-bedrag"></section>
+        </div>
+    </div>
+
+    <div class=" row">
+
+        <div class="col-sm-2">
+            <p>Met vriendelijke groet,</p>
+            <section id="medewerker"></section>
+        </div>
+    </div>
+
+</div>
+<div class="col-sm-12 text-center">
+    <input type="button" value="Print offerte" id="btnPrint" class="btn btn-primary btn-sm custom-btn"/>
+</div>
+</body></html>

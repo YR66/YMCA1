@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YMCA</title>
+<link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+
+<script>
+    jQuery(document).ready(function($){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+</script>
+</head>
+
+<body>
+<!--- Start Navbar -->
+<div id="header"></div>
+<!--- End Navbar -->
+
+<div>
+    <div class="formulier-totaal">
+        <div class="narrow text-center">
+            <div class col-12>
+                <h3 class="heading">Relatie toevoegen</h3>
+            </div>
+
+            <form id="relatie">
+                <div class="form-group row">
+                    <label for="relatieId" class="col-sm-3">Relatienummer</label>
+                    <div class="col-sm-9">
+                        <input name="relatieId" id="relatieId" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="naam" class="col-sm-3">Naam</label>
+                    <div class="col-sm-9">
+                        <input name="naam" id="naam" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="adres" class="col-sm-3">Adres</label>
+                    <div class="col-sm-9">
+                        <input name="adres" id="adres" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="postcode" class="col-sm-3">Postcode</label>
+                    <div class="col-sm-9">
+                        <input name="postcode" id="postcode" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="woonplaats" class="col-sm-3">Woonplaats</label>
+                    <div class="col-sm-9">
+                        <input name="woonplaats" id="woonplaats" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="telefoonnummer" class="col-sm-3">Telefoon</label>
+                    <div class="col-sm-9">
+                        <input name="telefoonnummer" id="telefoonnummer" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3">E-mail</label>
+                    <div class="col-sm-9">
+                        <input name="email" id="email" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="organisatie" class="col-sm-3">Organisatie</label>
+                    <div class="col-sm-9">
+                        <input name="organisatie" id="organisatie" type="text" class="form-control">
+                    </div>
+                </div>
+
+
+            </form>
+
+        <button id="read" class="btn btn-primary btn-sm custom-btn">Read</button>
+        <button id="create" class="btn btn-primary btn-sm custom-btn">Create</button>
+        <button id="update" class="btn btn-primary btn-sm custom-btn">Update</button>
+        <button id="delete" class="btn btn-primary btn-sm custom-btn">Delete</button>
+        <script src="js/relatie.js"></script>
+
+</div>
+</div>
+
+    <!--- Start Footer-->
+    <div id="footer"></div>
+    <!--- End Footer-->
+</body>
+</html>

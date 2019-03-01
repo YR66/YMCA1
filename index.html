@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YMCA</title>
+    <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+
+    <script>
+        jQuery(document).ready(function($){
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</head>
+
+<body>
+
+<!--- Start Navbar -->
+<div id="header"></div>
+<!--- End Navbar -->
+
+<!--- Start Dashboard-->
+<div class="fixed-background">
+    <div class="row dark text-center">
+        <div class="col-12">
+            <h1>YMC Activities</h1>
+            <!--<div class="heading-underline"></div>-->
+        </div>
+
+
+
+        <div class="col-md-4 invisible">
+            <i class="fas fa-child fa-4x" data-fa-transform="shrink-3 up-5"></i>
+            <h3>Aantal klanten dit jaar</h3>
+
+            <div class="card">
+                <h3>Hier komt een card</h3>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="fixed-wrap">
+        <div class="fixed"></div>
+    </div>
+</div>
+<!--- End Dashboard-->
+
+<!--- Start Footer-->
+<div id="footer"></div>
+<!--- End Footer-->
+</body>
+</html>

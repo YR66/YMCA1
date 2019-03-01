@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YMCA</title>
+    <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+
+    <script>
+        jQuery(document).ready(function($){
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <script src="js/medewerker.js"></script>
+    <script src="js/status.js"></script>
+    <script src="js/relatieNaam.js"></script>
+</head>
+
+<body>
+
+<!--- Start Navbar -->
+<div id="header"></div>
+<!--- End Navbar -->
+
+<!--- Start Formulier Offerte-->
+<div class="formulier-totaal">
+    <div class="narrow text-center">
+        <div class col-12>
+            <h3 class="heading">Offerte maken</h3>
+        </div>
+
+        <form id="offerte">
+            <div class="form-group row">
+                <label for="offertenummer" class="col-sm-3">Offertenummer</label>
+                <div class="col-sm-9">
+                    <input id="offertenummer" name="offerteId" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="relatienummer" class="col-sm-3">Relatie</label>
+                <div class="col-sm-9">
+                    <select class="dropdown_relatie form-control" name="naam" id="relatienummer"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="programmanummer" class="col-sm-3">Programmanummer</label>
+                <div class="col-sm-9">
+                    <input id="programmanummer" name="programmaId" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="aantal-deelnemers" class="col-sm-3">Aantal deelnemers</label>
+                <div class="col-sm-9">
+                    <input id="aantal-deelnemers" name="deelnemers" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="medewerker" class="col-sm-3">Medewerker</label>
+                <div class="col-sm-9">
+                    <select class="dropdown_medewerker form-control" name="medewerker" id="medewerker"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="datum" class="col-sm-3">Datum</label>
+                <div class="col-sm-9">
+                    <input id="datum" name="datum" type="date" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="status" class="col-sm-3">Status</label>
+                <div class="col-sm-9">
+                    <select class="dropdown_status form-control" name="status" id="status"></select>
+                </div>
+            </div>
+            <button id="createOfferte" class="btn btn-primary btn-sm custom-btn">Create</button>
+            <button id="updateOfferte" class="btn btn-primary btn-sm custom-btn">Update</button>
+            <button id="updateStatus" class="btn btn-primary btn-sm custom-btn">Update status</button>
+            <!--<button type="submit" class="btn btn-primary btn-lg custom-btn">Opslaan</a></button>-->
+            <button class="btn btn-primary btn-sm custom-btn"> <a href="getOffertes.html">Overzicht offertes</a></button>
+        </form>
+    </div>
+</div>
+<!--- Eind Formulier Offerte-->
+
+<!--- Start Footer-->
+<div id="footer"></div>
+<!--- End Footer-->
+</body>
+</html>
